@@ -1,9 +1,20 @@
 package com.itheima.domain;
 
+import java.util.List;
+
 public class Role {
 	private Integer roleId;
 	private String  roleName;
 	private String roleDesc;
+	
+	//多对多关系映射:一个角色可以赋予多个用户
+	private List<User> users;
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 	public Integer getRoleId() {
 		return roleId;
 	}

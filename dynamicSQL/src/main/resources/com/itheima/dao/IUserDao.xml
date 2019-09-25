@@ -3,6 +3,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.itheima.dao.IUserDao">
+
 	<resultMap type="user" id="userAccountMap">
 		<id property="id" column="id" />
 		<result property="username" column="username" />
@@ -17,7 +18,25 @@
 		</collection>
 	</resultMap>
 
+	<resultMap type="user" id="userRoleMap">
+		<id property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="sex" column="sex" />
+		<result property="birthday" column="birthday" />
+		<result property="address" column="address" />
+		<!-- Oftype 集合中元素类型 -->
+		<collection property="roles" ofType="role">
+			<id property="roleId" column="rid" />
+			<result property="roleName" column="role_name" />
+			<result property="roleDesc" column="role_desc" />
+		</collection>
+	</resultMap>
 
+	<select id="findAllR" resultMap="userRoleMap">
+		select u.*,r.id as rid,r.role_name,r.role_desc from user u
+			left outer join user_role ur on u.id=ur.uid
+			left outer join role r on r.id=ur.rid
+	</select>
 
 	<select id="findAll" resultMap="userAccountMap">
 		select a.id as aid ,a.uid

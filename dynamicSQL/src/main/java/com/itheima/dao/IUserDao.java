@@ -12,6 +12,10 @@ import com.itheima.domain.User;
 public interface IUserDao {
 	// @Select("select * from t_customer")
 	List<User> findAll();
-// select by id
+	
+	//查询user对应的role信息
+	List<User> findAllR();
+	
+	// select by id
 	User findById(Integer id);
 }

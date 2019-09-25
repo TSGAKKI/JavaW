@@ -13,21 +13,23 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.itheima.dao.IRoleDao;
 import com.itheima.dao.IUserDao;
 import com.itheima.domain.Account;
+import com.itheima.domain.Role;
 import com.itheima.domain.User;
 
-public class MybatisTest {
+public class RoleTest {
 	private InputStream in;
 	private SqlSession sqlSession;
-	private IUserDao userDao;
+	private IRoleDao roleDao;
 
 	@Before
 	public void init() throws Exception {
 		in = Resources.getResourceAsStream("SqlMapConfig.xml");
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
 		sqlSession = factory.openSession();
-		userDao = sqlSession.getMapper(IUserDao.class);
+		roleDao = sqlSession.getMapper(IRoleDao.class);
 	}
 
 	@After
@@ -41,19 +43,11 @@ public class MybatisTest {
 
 	@Test
 	public void testFindAll() {
-		List<User> users = userDao.findAll();
-		for (User user : users) {
-			System.out.println(user);
-			System.out.println(user.getAccounts());
+		List<Role> roles = roleDao.findAll();
+		for (Role role : roles) {
+			System.out.println(role);
+			System.out.println(role.getUsers());
 		}
 	}
 
-	@Test
-	public void testFindAllR() {
-		List<User> users = userDao.findAllR();
-		for (User user : users) {
-			System.out.println(user);
-			System.out.println(user.getRoles());
-		}
-	}
 }
