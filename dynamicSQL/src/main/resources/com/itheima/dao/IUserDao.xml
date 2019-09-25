@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itheima.dao.IUserDao">
+	<sql id="defaultUser">
+		select *from t_customer
+	</sql>
+
+	<select id="findAll" resultType="user">
+		<include refid="defaultUser"></include>
+	</select>
+
+	<!-- select by id -->
+	<select id="findById" parameterType="int" resultType="user">
+		select *
+		from t_customer where id=#{id};
+	</select>
+
+	<!-- faint select -->
+	<select id="findByName" parameterType="String" resultType="user">
+		select * from t_customer where
+		username like #{name};
+	</select>
+
+	<!-- number of user -->
+	<select id="findTotal" resultType="int">
+		select count(id) from
+		t_customer;
+	</select>
+
+	<select id="findUserByVo"
+		parameterType="com.itheima.domain.QueryVo" resultType="user">
+		select * from
+		t_customer where username like #{user.username};
+	</select>
+
+	<!-- 根据条件查询 -->
+	<select id="findUserByCondition" parameterType="user"
+		resultType="user">
+		<include refid="defaultUser"></include>
+		<where>
+			<if test="username !=null">
+				and username=#{username}
+			</if>
+			<if test="jobs !=null">
+				and jobs=#{jobs}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 根据queryvo中ID集合查询用户列表 -->
+	<select id="findUserInIds" resultType="user"
+		parameterType="queryvo">
+		<include refid="defaultUser"></include>
+		<where>
+			<if test="idS != null and idS.size()>0">
+				<foreach collection="idS" open="and id in (" close=")"
+					item="uid" separator=",">
+					#{uid}
+				</foreach>
+			</if>
+		</where>
+	</select>
+	
+	<insert id="saveUser" parameterType="user">
+		<!-- keyProperty="id"把id插入User -->
+		<selectKey keyProperty="id" keyColumn="id" resultType="int"
+			order="AFTER">
+			select last_insert_id();
+		</selectKey>
+		insert into
+		t_customer(username,jobs, phone)
+		values(#{username},#{jobs},#{phone});
+	</insert>
+
+	<update id="updateUser" parameterType="user">
+		update t_customer set
+		username=#{username},jobs=#{jobs},phone=#{phone} where
+		id=#{id};
+	</update>
+
+	<delete id="deleteUser" parameterType="java.lang.Integer">
+		delete from t_customer
+		where id=#{id};
+	</delete>
+</mapper>
