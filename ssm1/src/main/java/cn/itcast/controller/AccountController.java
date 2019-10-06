@@ -9,13 +9,13 @@ import cn.itcast.service.AccountService;
 @Controller
 @RequestMapping("/account")
 public class AccountController {
-//	@Autowired
-//	private AccountService accountService;
-//	
+	@Autowired
+	private AccountService accountService;
+	
 	@RequestMapping("/findAll")
 	 public String findAll() {
 		 System.out.println("findall run");
-		// accountService.findAll();
+		 accountService.findAll();
 		 return "list";
 	 }
 }
