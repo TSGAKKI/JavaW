@@ -1,8 +1,6 @@
 package com.itheima.test;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -14,10 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.itheima.dao.IAccountDao;
-import com.itheima.dao.IUserDao;
 import com.itheima.domain.Account;
-
-import com.itheima.domain.User;
 
 public class AccountTest {
 	private InputStream in;
@@ -41,8 +36,9 @@ public class AccountTest {
 	}
 
 	@Test
-	public void testFindAll() {
-		List<Account> accounts = accountDao.findAll();
+	public void testFindaccountAll() {
+		List<Account> accounts = accountDao.findAllAccount();
+
 		for (Account account : accounts) {
 			System.out.println(account);
 			System.out.println(account.getUser());

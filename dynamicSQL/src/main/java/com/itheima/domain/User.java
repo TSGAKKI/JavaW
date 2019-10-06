@@ -1,7 +1,9 @@
 package com.itheima.domain;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.List;
+
 
 public class User {
 
@@ -20,16 +22,16 @@ public class User {
 	private List<Account> accounts;
 
 	//多对多的关系映射:一个用户可以具备多个角色
-	private List<Role> roles;
-	
-	
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
+//	private List<Role> roles;
+//	
+//	
+//	public List<Role> getRoles() {
+//		return roles;
+//	}
+//
+//	public void setRoles(List<Role> roles) {
+//		this.roles = roles;
+//	}
 
 	// 一对多关系映射,主表应包含从表实体集合引用
 	public List<Account> getAccounts() {

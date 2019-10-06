@@ -5,11 +5,12 @@
 <configuration>
 	<!--1.配置环境 ，默认的环境id为mysql -->
 	<properties resource="jdbcConfig.properties" />
+
 	<!-- 别名映射 -->
-	<typeAliases> <!-- <typeAlias type="com.itheima.domain.User" alias="user"/> -->
+	<typeAliases>
 		<package name="com.itheima.domain" />
 	</typeAliases>
-	
+
 	<environments default="mysql">
 		<!--1.2.配置id为mysql的数据库环境 -->
 		<environment id="mysql">

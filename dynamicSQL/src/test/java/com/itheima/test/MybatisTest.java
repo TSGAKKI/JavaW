@@ -2,7 +2,9 @@ package com.itheima.test;
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -14,7 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.itheima.dao.IUserDao;
-import com.itheima.domain.Account;
+
 import com.itheima.domain.User;
 
 public class MybatisTest {
@@ -44,16 +46,42 @@ public class MybatisTest {
 		List<User> users = userDao.findAll();
 		for (User user : users) {
 			System.out.println(user);
-			System.out.println(user.getAccounts());
 		}
 	}
 
 	@Test
-	public void testFindAllR() {
-		List<User> users = userDao.findAllR();
-		for (User user : users) {
-			System.out.println(user);
-			System.out.println(user.getRoles());
-		}
+	public void testsaveUser() {
+		// TODO Auto-generated method stub
+		User user = new User();
+		user.setAddress("北京市海淀区");
+		user.setUsername("save_sql");
+		userDao.saveUser(user);
 	}
+	
+	@Test
+	public void testupdateUser() {
+		User user = new User();
+		user.setId(50);
+		user.setAddress("北京市海淀区");
+		user.setUsername("save_sql");
+		user.setBirthday(new Date());
+		user.setSex("M");
+		
+		userDao.updateUser(user);
+	}
+	
+	@Test 
+	public void testdeleteUser() {
+		userDao.deleteUser(50);
+	}
+	
+	@Test 
+	public void testseletoneUser() {
+		
+		System.out.println(userDao.findById(46));
+	}
+	
+	
+	
+	
 }

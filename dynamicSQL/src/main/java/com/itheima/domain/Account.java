@@ -5,6 +5,8 @@ public class Account {
 	private Integer uid;
 	private Double money;
 
+	
+	//一对一映射,一个账户一个用户
 	private User user;
 
 	public User getUser() {
