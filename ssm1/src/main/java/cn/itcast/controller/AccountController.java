@@ -24,7 +24,7 @@ public class AccountController {
 	@RequestMapping("/findAll")
 	 public String findAll(Model model) {
 		 System.out.println("表现层");
-		 List<Account> list=accountService.findAll();
+		 List<Account> list = accountService.findAll();
 		 model.addAttribute("list",list);
 		 return "list";
 	 }
