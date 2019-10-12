@@ -11,7 +11,7 @@ public interface UserService {
 	public List<User> findAll();
 	
 	//按Username查找用户
-	public List<User> findByUsercode(String usercode) ;
+	public User findByUsercode(String usercode) ;
 	
 	//添加用戶
 	public int saveUser(User user);

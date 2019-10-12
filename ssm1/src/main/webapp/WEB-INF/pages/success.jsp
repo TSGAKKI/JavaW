@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a>执行成功</a> ${user.username} ${user.userpassword}
+	<a>执行成功</a> 1${user.usercode} 2${user.userpassword}
 </body>
 </html>

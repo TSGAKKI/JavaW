@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findByUsercode(String usercode) {
+	public User findByUsercode(String usercode) {
 		// TODO Auto-generated method stub
 		System.out.println("进入业务层findUserName");
 		return userDao.findByUsercode(usercode);
