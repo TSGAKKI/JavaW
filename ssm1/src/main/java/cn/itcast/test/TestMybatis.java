@@ -11,8 +11,10 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import cn.itcast.dao.AccountDao;
+import cn.itcast.dao.CustomerDao;
 import cn.itcast.dao.UserDao;
 import cn.itcast.domain.Account;
+import cn.itcast.domain.Customer;
 import cn.itcast.domain.User;
 
 public class TestMybatis {
@@ -22,10 +24,10 @@ public class TestMybatis {
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
 
 		SqlSession session = factory.openSession();
-		UserDao userdao = session.getMapper(UserDao.class);
-		List<User> users = userdao.findAll();
+		CustomerDao customerDao = session.getMapper(CustomerDao.class);
+		Customer customers = customerDao.findBycusid(1);
 		
-			System.out.println(users);
+			System.out.println(customers);
 			//System.out.println(user.getCustomers());
 		
 		session.close();

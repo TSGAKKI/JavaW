@@ -13,7 +13,7 @@ import cn.itcast.service.CustomerService;
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerDao customerDao;
-	
+
 	@Override
 	public List<Customer> findAllCus() {
 		// TODO Auto-generated method stub
@@ -30,6 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
 	public int saveCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 		return customerDao.saveCustomer(customer);
+	}
+
+	@Override
+	public Customer findBycusid(Integer cusid) {
+		// TODO Auto-generated method stub
+		return customerDao.findBycusid(cusid);
 	}
 
 }

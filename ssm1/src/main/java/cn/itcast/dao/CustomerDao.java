@@ -23,4 +23,8 @@ public interface CustomerDao {
 		//添加用戶
 		@Insert("insert into customer(usercode,username,userpassword) values('1548637398','tsgakki','TSLIUlei19891998')")
 		public int saveCustomer(Customer customer); 
+		
+		//通过cusid查询用户
+		@Select("select * from customer where cusid = #{cusid}")
+		public Customer findBycusid(Integer cusid);
 }

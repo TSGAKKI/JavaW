@@ -1,11 +1,13 @@
 package cn.itcast.domain;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Customer {
-	private int cusid;
+public class Customer  implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private Integer cusid;
 	private String cusname;
-	private int userid;
+	private Integer userid;
 	// 用户信息来源
 	private String cussource;
 	// 客户所属行业

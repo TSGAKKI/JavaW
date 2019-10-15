@@ -17,7 +17,7 @@
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	
+
 	<!-- spring整合mybatis -->
 	<!-- 配置连接池 -->
 	<bean id="dataSource"
@@ -38,21 +38,24 @@
 		class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="cn.itcast.dao"></property>
 	</bean>
-	
+
 	<!-- 配置声明事务管理 -->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	<!-- 配置事物通知 -->
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:advice id="txAdvice"
+		transaction-manager="transactionManager">
 		<tx:attributes>
-			<tx:method name="find*" read-only="true"/>
-			<tx:method name="*" isolation="DEFAULT"/>
+			<tx:method name="find*" read-only="true" />
+			<tx:method name="*" isolation="DEFAULT" />
 		</tx:attributes>
 	</tx:advice>
-	
+
 	<!-- aop增强 -->
 	<aop:config>
-		<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.itcast.service.impl.*ServiceImpl.*(..))"/>
+		<aop:advisor advice-ref="txAdvice"
+			pointcut="execution(* cn.itcast.service.impl.*ServiceImpl.*(..))" />
 	</aop:config>
 </beans>
