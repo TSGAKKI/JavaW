@@ -25,18 +25,22 @@ public class TestMybatis {
 
 		SqlSession session = factory.openSession();
 		CustomerDao customerDao = session.getMapper(CustomerDao.class);
-		Customer customers = customerDao.findBycusid(1);
-		
-			System.out.println(customers);
-			//System.out.println(user.getCustomers());
-		
+		Customer customer = new Customer();
+		// customer.setCussource("网上搜集");
+		customer.setCusid(3);;
+	customer.setCusname("嘿嘿老哥");
+System.out.println(customerDao.updateCustomer(customer)); 
+		//customerDao.deleteCustomer(3);
+	
+		// System.out.println(user.getCustomers());
+		session.commit();
 		session.close();
 		inputStream.close();
 	}
-	
+
 	@Test
 	public void testSave() throws IOException {
-		Account account=new Account();
+		Account account = new Account();
 		account.setName("刘");
 		account.setMoney(2010.0);
 		InputStream inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");

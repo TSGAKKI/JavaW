@@ -3,6 +3,7 @@ package cn.itcast.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,30 +13,24 @@ import cn.itcast.domain.Account;
 import cn.itcast.domain.Customer;
 import cn.itcast.domain.User;
 import cn.itcast.service.CustomerService;
+import cn.itcast.service.UserService;
 import cn.itcast.service.impl.AccountServiceImpl;
 import cn.itcast.service.impl.CustomerServiceImpl;
 import cn.itcast.service.impl.UserServiceImpl;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 	@Autowired
-	private UserServiceImpl userServiceImpl;
-	@Autowired
-	private CustomerServiceImpl customerServiceImpl;
+	private UserService userService;
 
-	@RequestMapping("/login")
-	public String Login(User user, HttpServletRequest request) {
+
+	@RequestMapping("user/login")
+	public String Login(User user, HttpSession request) {
 		User users;
-		List<Customer> customers;
-		System.out.println(user.getUserpassword());
-		users = userServiceImpl.findByUsercode(user.getUsercode());
-
+		users = userService.findByUsercode(user.getUsercode());
 		if (users.getUserpassword().equals(user.getUserpassword())) {
-			customers = customerServiceImpl.findByuserid(users.getUserid());
-			request.setAttribute("customers", customers);
-
-			return "custom";
+			request.setAttribute("user", users);
+			return "redirect:/customer/list_init.action";
 		} else {
 			return "success";
 		}

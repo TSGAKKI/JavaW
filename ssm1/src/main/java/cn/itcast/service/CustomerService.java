@@ -20,4 +20,13 @@ public interface CustomerService {
 
 	// 按cusid查询customer用户
 	public Customer findBycusid(Integer cusid);
+	
+	//按条件查询
+	public List<Customer> findCustomerList(Customer customer);
+	
+	//根据条件更新用户数据
+	public int updateCustomer(Customer customer);
+	
+	//根据cusid删除
+	public int deleteCustomer(Integer cusid);
 }

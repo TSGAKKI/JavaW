@@ -3,29 +3,29 @@ package cn.itcast.domain;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Customer  implements Serializable{
+public class Customer implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	private Integer cusid;
-	private String cusname;
-	private Integer userid;
+	private Integer cusid = null;
+	private String cusname = null;
+	private Integer userid = null;
 	// 用户信息来源
-	private String cussource;
+	private String cussource = null;
 	// 客户所属行业
-	private String cusindustry;
+	private String cusindustry = null;
 
-	private String cuslevel;
+	private String cuslevel = null;
 
-	private String cusphone;
-	private String cusmoblie;
+	private String cusphone = null;
+	private String cusmoblie = null;
 
 	// 邮政编码
-	private String cuszipcode;
+	private String cuszipcode = null;
 	// 客户地址
-	private String cusaddress;
+	private String cusaddress = null;
 	// 创建时间
-	private Date cuscreatetime;
+	private Date cuscreatetime = null;
 
-	
 	@Override
 	public String toString() {
 		return "Customer [cusid=" + cusid + ", cusname=" + cusname + ", userid=" + userid + ", cussource=" + cussource
@@ -34,20 +34,20 @@ public class Customer  implements Serializable{
 				+ cuscreatetime + "]";
 	}
 
-	public int getUserid() {
+	public Integer getUserid() {
 		return userid;
 	}
 
-	public void setUserid(int userid) {
+	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
 
-	public int getCusid() {
-		return cusid;
+	public void setCusid(Integer cusid) {
+		this.cusid = cusid;
 	}
 
-	public void setCusid(int cusid) {
-		this.cusid = cusid;
+	public Integer getCusid() {
+		return cusid;
 	}
 
 	public String getCusname() {

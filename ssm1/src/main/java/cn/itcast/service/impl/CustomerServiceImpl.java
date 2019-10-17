@@ -38,4 +38,22 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.findBycusid(cusid);
 	}
 
+	@Override
+	public List<Customer> findCustomerList(Customer customer) {
+		// TODO Auto-generated method stub
+		return customerDao.findCustomerList(customer);
+	}
+
+	@Override
+	public int updateCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		return customerDao.updateCustomer(customer);
+	}
+
+	@Override
+	public int deleteCustomer(Integer cusid) {
+		// TODO Auto-generated method stub
+		return customerDao.deleteCustomer(cusid);
+	}
+
 }
