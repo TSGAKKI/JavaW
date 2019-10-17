@@ -63,5 +63,36 @@ public class CustomerDaoProvider {
 			}
 		}.toString();
 	}
-
+	public String createCustomer(Customer customer) {
+		return new SQL() {
+			{
+				INSERT_INTO("customer");
+				if (customer.getCussource() != null) {
+					VALUES("cussource", "#{cussource}");
+				}
+				if (customer.getCusindustry() != null) {
+					VALUES("cusindustry", "#{cusindustry}");		
+				}
+				if (customer.getCuslevel() != null) {
+					VALUES("cuslevel", "#{cuslevel}");
+					
+				}
+				if (customer.getCusaddress() != null) {
+					VALUES("cusaddress", "#{cusaddress}");					
+				}
+				if (customer.getCusname() != null) {
+					VALUES("cusname", "#{cusname}");
+				}
+				if (customer.getCusphone() != null) {
+					VALUES("cusphone", "#{cusphone}");
+				}
+				if (customer.getCusmoblie() != null) {
+					VALUES("cusmoblie", "#{cusmoblie}");
+				}
+				if (customer.getCuszipcode() != null) {
+					VALUES("cuszipcode", "#{cuszipcode}");
+				}
+			}
+		}.toString();
+	}
 }

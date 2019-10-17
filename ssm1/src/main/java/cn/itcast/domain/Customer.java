@@ -1,7 +1,11 @@
 package cn.itcast.domain;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpRequest;
 
 public class Customer implements Serializable {
 
@@ -25,6 +29,22 @@ public class Customer implements Serializable {
 	private String cusaddress = null;
 	// 创建时间
 	private Date cuscreatetime = null;
+
+	public Customer(HttpServletRequest request) {
+		// TODO Auto-generated constructor stub
+		this.cusaddress = (String) request.getAttribute("cusaddress");
+		this.cusindustry = (String) request.getAttribute("cusindustry");
+		this.cuslevel = (String) request.getAttribute("cuslevel");
+		this.cusmoblie = (String) request.getAttribute("cusmoblie");
+		this.cusname = (String) request.getAttribute("cusname");
+		this.cussource = (String) request.getAttribute("cussource");
+		this.cuszipcode = (String) request.getAttribute("cuszipcode");
+		this.cusphone = (String) request.getAttribute("cusphone");
+	}
+
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String toString() {

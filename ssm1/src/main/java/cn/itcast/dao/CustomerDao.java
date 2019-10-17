@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
@@ -29,8 +30,9 @@ public interface CustomerDao {
 	public List<Customer> findCustomerList(Customer customer);
 
 	// 添加用戶
-	@Insert("insert into customer(usercode,username,userpassword) values('1548637398','tsgakki','TSLIUlei19891998')")
-	public int saveCustomer(Customer customer);
+	//@Insert("insert into customer(usercode,username,userpassword) values('1548637398','tsgakki','TSLIUlei19891998')")
+	@InsertProvider(type = CustomerDaoProvider.class,method = "createCustomer")
+	public int createCustomer(Customer customer);
 
 	// 通过cusid查询用户
 	@Select("select * from customer where cusid = #{cusid}")
@@ -43,4 +45,5 @@ public interface CustomerDao {
 	//删除customer
 	@Delete("delete from customer where cusid=#{cusid}")
 	public int deleteCustomer(Integer cusid);
+	
 }

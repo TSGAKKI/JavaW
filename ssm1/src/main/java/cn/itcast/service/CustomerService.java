@@ -16,7 +16,7 @@ public interface CustomerService {
 	public List<Customer> findByuserid(int userid);
 
 	// 添加用戶
-	public int saveCustomer(Customer customer);
+	public int createCustomer(Customer customer);
 
 	// 按cusid查询customer用户
 	public Customer findBycusid(Integer cusid);
@@ -29,4 +29,5 @@ public interface CustomerService {
 	
 	//根据cusid删除
 	public int deleteCustomer(Integer cusid);
+	
 }

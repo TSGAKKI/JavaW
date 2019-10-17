@@ -244,12 +244,12 @@
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" id="edit_customer_form">
-						<input type="hidden" id="edit_cust_id" name="cust_id" />
+						<input type="hidden" id="edit_cust_id" name="cusid" />
 						<div class="form-group">
 							<label for="edit_customerName" class="col-sm-2 control-label">客户名称</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="edit_customerName"
-									placeholder="客户名称" name="cust_name" />
+									placeholder="客户名称" name="cusname" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -257,7 +257,7 @@
 								style="float: left; padding: 7px 15px 0 27px;">客户来源</label>
 							<div class="col-sm-10">
 										<input type="text" class="form-control" id="edit_customerFrom"
-									placeholder="客户来源" name="cust_source" />
+									placeholder="客户来源" name="cussource" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -265,7 +265,7 @@
 								style="float: left; padding: 7px 15px 0 27px;">所属行业</label>
 							<div class="col-sm-10">
 										<input type="text" class="form-control" id="edit_custIndustry"
-									placeholder="所属行业" name="cust_industry" />
+									placeholder="所属行业" name="cusindustry" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -273,35 +273,35 @@
 								style="float: left; padding: 7px 15px 0 27px;">客户级别</label>
 							<div class="col-sm-10">
 										<input type="text" class="form-control" id="edit_custLevel"
-									placeholder="客户级别" name="cust_level" />
+									placeholder="客户级别" name="cuslevel" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_phone" class="col-sm-2 control-label">固定电话</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="edit_phone"
-									placeholder="固定电话" name="cust_phone" />
+									placeholder="固定电话" name="cusphone" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_mobile" class="col-sm-2 control-label">移动电话</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="edit_mobile"
-									placeholder="移动电话" name="cust_mobile" />
+									placeholder="移动电话" name="cusmoblie" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_zipcode" class="col-sm-2 control-label">邮政编码</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="edit_zipcode"
-									placeholder="邮政编码" name="cust_zipcode" />
+									placeholder="邮政编码" name="cuszipcode" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="edit_address" class="col-sm-2 control-label">联系地址</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="edit_address"
-									placeholder="联系地址" name="cust_address" />
+									placeholder="联系地址" name="cusaddress" />
 							</div>
 						</div>
 					</form>
