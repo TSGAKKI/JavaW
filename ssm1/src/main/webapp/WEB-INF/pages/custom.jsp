@@ -314,6 +314,78 @@
 			</div>
 		</div>
 	</div>
+	<!-- 创建客户模态框 -->
+<div class="modal fade" id="newCustomerDialog" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">新建客户信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" id="new_customer_form">
+					<div class="form-group">
+						<label for="new_customerName" class="col-sm-2 control-label">
+						    客户名称
+						</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="new_customerName" placeholder="客户名称" name="cusname" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="new_customerFrom" style="float:left;padding:7px 15px 0 27px;">客户来源</label> 
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="new_customerFrom" placeholder="客户来源" name="cussource" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="new_custIndustry" style="float:left;padding:7px 15px 0 27px;">所属行业</label>
+						<div class="col-sm-10"> 
+							<input type="text" class="form-control" id="new_custIndustry" placeholder="所属行业" name="cusindustry" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="new_custLevel" style="float:left;padding:7px 15px 0 27px;">客户级别</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="new_custLevel" placeholder="客户级别" name="cuslevel" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="new_phone" class="col-sm-2 control-label">固定电话</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="new_phone" placeholder="固定电话" name="cusphone" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="new_mobile" class="col-sm-2 control-label">移动电话</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="new_mobile" placeholder="移动电话" name="cusmoblie" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="new_zipcode" class="col-sm-2 control-label">邮政编码</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="new_zipcode" placeholder="邮政编码" name="cuszipcode" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="new_address" class="col-sm-2 control-label">联系地址</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="new_address" placeholder="联系地址" name="cusaddress" />
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" onclick="createCustomer()">创建客户</button>
+			</div>
+		</div>
+	</div>
+</div>
 	<!-- 引入js文件 -->
 	<!-- jQuery -->
 	<script src="<%=basePath%>js/jquery-1.11.3.min.js"></script>

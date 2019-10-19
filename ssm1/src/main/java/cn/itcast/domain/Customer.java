@@ -32,6 +32,7 @@ public class Customer implements Serializable {
 
 	public Customer(HttpServletRequest request) {
 		// TODO Auto-generated constructor stub
+		
 		this.cusaddress = (String) request.getAttribute("cusaddress");
 		this.cusindustry = (String) request.getAttribute("cusindustry");
 		this.cuslevel = (String) request.getAttribute("cuslevel");

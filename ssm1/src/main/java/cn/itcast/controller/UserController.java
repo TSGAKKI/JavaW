@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.itcast.domain.Account;
@@ -24,15 +25,17 @@ public class UserController {
 	private UserService userService;
 
 
-	@RequestMapping("user/login")
-	public String Login(User user, HttpSession request) {
+	@RequestMapping("/login.action")
+	public String Login(User user, HttpSession session, Model model) {
 		User users;
 		users = userService.findByUsercode(user.getUsercode());
 		if (users.getUserpassword().equals(user.getUserpassword())) {
-			request.setAttribute("user", users);
+			session.setAttribute("user", users);
 			return "redirect:/customer/list_init.action";
 		} else {
-			return "success";
+			model.addAttribute("msg", "账号或密码错误，请重新输入！");
+	         // 返回到登录页面
+			return "loginForm";
 		}
 	}
 

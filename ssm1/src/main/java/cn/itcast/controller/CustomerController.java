@@ -95,17 +95,19 @@ public class CustomerController {
 	@ResponseBody
 	public String customerCreate(Customer customer,HttpServletRequest request, HttpSession session) {
 		//Customer customer=new Customer(request); 
-		System.out.println(customer);
+		
 		// 获取Session中的当前用户信息
 		User user = (User) session.getAttribute("user");
+		
 		// 将当前用户id存储在客户对象中
 		customer.setUserid(user.getUserid());
 		// 创建Date对象
 		Date date = new Date();
 		// 得到一个Timestamp格式的时间，存入mysql中的时间格式“yyyy/MM/dd HH:mm:ss”
 		Timestamp timeStamp = new Timestamp(date.getTime());
-
+		System.out.println(timeStamp);
 		customer.setCuscreatetime(timeStamp);
+		System.out.println(customer);
 		// 执行Service层中的创建方法，返回的是受影响的行数
 		int rows = customerService.createCustomer(customer);
 		if (rows > 0) {
