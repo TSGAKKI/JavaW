@@ -153,27 +153,27 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<form class="form-inline" method="get"
-						action="${pageContext.request.contextPath }/customer/list.action">
+						action="${pageContext.request.contextPath }/customer/list_init.action">
 						<div class="form-group">
 							<label for="customerName">客户名称</label> 
 							<input type="text"
-								class="form-control" id="customerName" value="${custName }"
-								name="custName" />
+								placeholder="客户名称" class="form-control" id="customerName" value="${cusname }"
+								name="cusname" />
 						</div>
 						<div class="form-group">
 							<label for="customerFrom">客户来源</label> <input type="text"
-								class="form-control" id="customerName" value="${custName }"
-								name="custName" />
+								placeholder="客户来源" class="form-control" id="customerFrom" value="${cussource}"
+								name="cussource" />
 						</div>
 						<div class="form-group">
 							<label for="custIndustry">所属行业</label><input type="text"
-								class="form-control" id="customerName" value="${custName }"
-								name="custName" />
+								placeholder="所属行业" class="form-control" id="custIndustry" value="${cusindustry}"
+								name="cusindustry" />
 						</div>
 						<div class="form-group">
 							<label for="custLevel">客户级别</label> <input type="text"
-								class="form-control" id="customerName" value="${custName }"
-								name="custName" />
+								placeholder="客户级别" class="form-control" id="custLevel" value="${cuslevel}"
+								name="cuslevel" />
 						</div>
 						<button type="submit" class="btn btn-primary">查询</button>
 					</form>

@@ -10,18 +10,22 @@ public class CustomerDaoProvider {
 			{
 				SELECT("*");
 				FROM("customer");
-				if (customer.getUserid() != null) {
+				if (customer.getUserid() != null&&(!customer.getUserid().equals(""))) {
 					WHERE("userid=#{userid}");
 				}
-				if (customer.getCussource() != null) {
+				if (customer.getCusname() != null&&(!customer.getCusname().equals(""))) {
+					WHERE("cusname=#{cusname}");
+
+				}
+				if (customer.getCussource() != null&&(!customer.getCussource().equals(""))) {
 					WHERE("cussource=#{cussource}");
 
 				}
-				if (customer.getCusindustry() != null) {
+				if (customer.getCusindustry() != null&&(!customer.getCusindustry().equals(""))) {
 					WHERE("cusindustry=#{cusindustry}");
 
 				}
-				if (customer.getCuslevel() != null) {
+				if (customer.getCuslevel() != null&&(!customer.getCuslevel().equals(""))) {
 					WHERE("cuslevel=#{cuslevel}");
 
 				}

@@ -39,6 +39,10 @@ public class CustomerController {
 		customer.setCussource(cussource);
 		customer.setCusindustry(cusindustry);
 		customer.setCuslevel(cuslevel);
+		System.out.println(customer);
+		if (customer.getCuslevel()!=null) {
+			System.out.println(customer.getCuslevel().equals(""));
+		}
 		customers = customerService.findCustomerList(customer);
 
 		model.addAttribute("customers", customers);
