@@ -13,7 +13,7 @@
 			 <%-- 提示信息--%>
 			 <span id="message">${msg}</span>
 		</font>
-            <form id="indexform" name="indexForm" action="/login.action" method="post">
+            <form id="indexform" name="indexForm" action="login.action" method="post">
                 <table border="0">
                     <tr>
                         <td>账号：</td>
